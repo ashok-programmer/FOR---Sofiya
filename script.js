@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
-const birth=new Date('2009-09-06T00:00:00+05:30');
+const birth=new Date('2009-09-06T00:00:00+04:00');
 function counter(){const now=new Date();let ms=Math.max(0,now-birth);const sec=Math.floor(ms/1000),days=Math.floor(sec/86400),hrs=Math.floor(sec%86400/3600),mins=Math.floor(sec%3600/60),s=sec%60;const y=now.getFullYear()-2009;$('#ageCounter').textContent=`${y} years · ${days} days · ${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
 counter();setInterval(counter,1000);
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});$$('.reveal').forEach(e=>io.observe(e));
